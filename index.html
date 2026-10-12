@@ -1,0 +1,583 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hareena Sathar</title>
+<meta name="description" content="Hareena Sathar: licensed civil engineer from Kerala, now studying at RWTH Aachen. Site engineering, quantity surveying, remote sensing, photogrammetry and machine learning for geohazards.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a single drawing sheet. Title block hero, then project sheets with a margin rail of survey-style metadata. */
+:root{
+  --paper:#f4f6f6;      /* cool drafting paper */
+  --sheet:#ffffff;
+  --ink:#15202a;        /* drawing ink */
+  --muted:#56636e;
+  --rule:#d5dbdf;
+  --rule-strong:#9aa6af;
+  --contour:#1f5ea8;    /* contour-line blue: links, accents */
+  --marker:#e5ad00;     /* survey-marker yellow: small highlights only */
+  --marker-ink:#2a2100;
+  --font-display:"Archivo", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --font-body:"IBM Plex Sans", "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --step--1:0.84rem; --step-0:1rem; --step-1:1.2rem; --step-2:1.5rem; --step-3:2.1rem; --step-4:clamp(2.6rem,7vw,4.6rem);
+  --gutter:clamp(16px,4vw,40px);
+  --maxw:1180px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0f151b; --sheet:#151d25; --ink:#e4eaee; --muted:#9aa8b3; --rule:#26323d; --rule-strong:#40505d;
+    --contour:#79aef0; --marker:#f2c230; --marker-ink:#1d1600; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0f151b; --sheet:#151d25; --ink:#e4eaee; --muted:#9aa8b3; --rule:#26323d; --rule-strong:#40505d;
+  --contour:#79aef0; --marker:#f2c230; --marker-ink:#1d1600; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{background:var(--paper);color:var(--ink);font-family:var(--font-body);font-size:var(--step-0);line-height:1.6;margin:0;-webkit-font-smoothing:antialiased}
+a{color:var(--contour);text-underline-offset:3px;text-decoration-thickness:1px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:2px solid var(--contour);outline-offset:3px;border-radius:2px}
+img{display:block;max-width:100%;height:auto}
+h1,h2,h3{font-family:var(--font-display);font-stretch:112%;line-height:1.1;text-wrap:balance;margin:0;letter-spacing:-0.01em}
+p{margin:0}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:var(--gutter)}
+.label{font-family:var(--font-mono);font-size:var(--step--1);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.mono{font-family:var(--font-mono);font-variant-numeric:tabular-nums}
+
+/* top bar */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--rule)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.mark{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-family:var(--font-display);font-weight:700;font-stretch:118%;letter-spacing:.02em}
+.mark svg{flex:none}
+.nav{display:flex;gap:clamp(12px,2.4vw,28px);flex-wrap:wrap;justify-content:flex-end}
+.nav a{color:var(--ink);text-decoration:none;font-size:var(--step--1);font-weight:500}
+.nav a:hover{color:var(--contour)}
+@media (max-width:560px){.nav a.opt{display:none}}
+
+/* hero as a drawing title block */
+.hero{padding-block:clamp(36px,6vw,72px) clamp(28px,4vw,48px)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:start}
+@media (max-width:860px){.hero-grid{grid-template-columns:1fr}}
+.hero h1{font-size:var(--step-4);font-weight:800;font-stretch:120%;letter-spacing:-0.02em;margin-block:14px 18px}
+.lede{font-size:var(--step-1);line-height:1.55;max-width:38ch;color:var(--ink)}
+.lede em{font-style:normal;background:linear-gradient(transparent 62%,color-mix(in srgb,var(--marker) 55%,transparent) 62%);padding-inline:2px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border:1.5px solid var(--ink);border-radius:3px;font-weight:600;font-size:.95rem;text-decoration:none;color:var(--ink);background:transparent;cursor:pointer;font-family:var(--font-body)}
+.btn.primary{background:var(--ink);color:var(--paper)}
+.btn:hover{border-color:var(--contour);color:var(--contour)}
+.btn.primary:hover{background:var(--contour);border-color:var(--contour);color:var(--sheet)}
+
+.titleblock{margin-top:36px;border:1.5px solid var(--ink);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));background:var(--sheet)}
+.titleblock > div{padding:10px 14px;border-right:1px solid var(--rule-strong);border-bottom:1px solid var(--rule-strong);min-width:0}
+.titleblock > div:nth-child(3n){border-right:0}
+.titleblock > div:nth-last-child(-n+3){border-bottom:0}
+.titleblock .v{font-size:.95rem;font-weight:500;margin-top:2px;overflow-wrap:anywhere}
+@media (max-width:620px){
+  .titleblock{grid-template-columns:1fr 1fr}
+  .titleblock > div{border-right:1px solid var(--rule-strong)!important;border-bottom:1px solid var(--rule-strong)!important}
+  .titleblock > div:nth-child(2n){border-right:0!important}
+  .titleblock > div:nth-last-child(-n+2){border-bottom:0!important}
+}
+.portrait{position:relative;margin:0}
+.portrait img{width:100%;aspect-ratio:1/1;object-fit:cover;border:1.5px solid var(--ink)}
+.portrait figcaption{display:flex;justify-content:space-between;gap:12px;margin-top:8px}
+.crosshair{position:absolute;width:22px;height:22px;pointer-events:none}
+.crosshair::before,.crosshair::after{content:"";position:absolute;background:var(--marker)}
+.crosshair::before{left:10px;top:0;width:2px;height:22px}
+.crosshair::after{top:10px;left:0;height:2px;width:22px}
+.ch-tl{top:-11px;left:-11px}.ch-br{bottom:24px;right:-11px}
+
+/* sections */
+section{scroll-margin-top:72px}
+.section-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1.5px solid var(--ink);padding-top:14px;margin-bottom:clamp(20px,3vw,36px)}
+.section-head h2{font-size:var(--step-3);font-weight:750}
+.block{padding-block:clamp(40px,6vw,72px)}
+
+/* focus strip */
+.focus{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border:1px solid var(--rule-strong);background:var(--sheet)}
+.focus > div{padding:20px 22px;border-right:1px solid var(--rule);min-width:0}
+.focus > div:last-child{border-right:0}
+.focus h3{font-size:var(--step-1);font-weight:700;margin-block:6px 8px}
+.focus p{color:var(--muted);font-size:.95rem}
+@media (max-width:820px){.focus{grid-template-columns:1fr}.focus > div{border-right:0;border-bottom:1px solid var(--rule)}.focus > div:last-child{border-bottom:0}}
+
+/* project sheet */
+.project{display:grid;grid-template-columns:200px minmax(0,1fr);gap:clamp(18px,3vw,40px);padding-block:clamp(28px,4vw,44px);border-top:1px solid var(--rule)}
+.project:first-of-type{border-top:0;padding-top:0}
+@media (max-width:820px){.project{grid-template-columns:1fr}}
+.rail{display:flex;flex-direction:column;gap:14px;min-width:0}
+.rail dl{margin:0;display:grid;gap:12px}
+.rail dt{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.rail dd{margin:2px 0 0;font-size:.92rem;font-weight:500}
+@media (max-width:820px){.rail dl{grid-template-columns:repeat(auto-fit,minmax(140px,1fr))}}
+.pbody{min-width:0;display:grid;gap:18px}
+.pbody h3{font-size:var(--step-2);font-weight:750}
+.pbody .summary{font-size:1.06rem;max-width:68ch}
+.pbody ul{margin:0;padding-left:1.1em;display:grid;gap:6px;max-width:72ch}
+.pbody li::marker{color:var(--contour)}
+.figs{display:grid;gap:14px}
+.figs.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.figs.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:700px){.figs.two,.figs.three{grid-template-columns:1fr}}
+figure{margin:0;min-width:0}
+.shot{display:block;padding:0;border:1px solid var(--rule-strong);background:var(--sheet);cursor:zoom-in;width:100%}
+.shot img{width:100%}
+.shot.crop img{aspect-ratio:4/3;object-fit:cover}
+.shot.crop-tall img{aspect-ratio:1/1;object-fit:cover;object-position:top}
+figcaption{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.45}
+.numbers{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));border:1px solid var(--rule-strong);background:var(--sheet)}
+.numbers > div{padding:12px 14px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);min-width:0}
+.numbers .n{font-family:var(--font-display);font-weight:750;font-stretch:110%;font-size:1.45rem;font-variant-numeric:tabular-nums;line-height:1.15}
+.numbers .k{font-size:.8rem;color:var(--muted);line-height:1.35;margin-top:4px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-family:var(--font-mono);font-size:.74rem;padding:3px 8px;border:1px solid var(--rule-strong);border-radius:2px;color:var(--ink);background:var(--paper)}
+.links{display:flex;flex-wrap:wrap;gap:16px;font-weight:500;font-size:.95rem}
+.note{font-size:.88rem;color:var(--muted);border-left:3px solid var(--marker);padding:2px 0 2px 12px;max-width:72ch}
+
+/* smaller work */
+.minor{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2vw,24px)}
+@media (max-width:900px){.minor{grid-template-columns:1fr}}
+.minor article{border-top:1.5px solid var(--ink);padding-top:14px;display:grid;gap:8px;align-content:start;min-width:0}
+.minor h3{font-size:var(--step-1);font-weight:700}
+.minor p{color:var(--muted);font-size:.95rem}
+
+/* experience timeline */
+.timeline{display:grid;gap:0}
+.role{display:grid;grid-template-columns:200px minmax(0,1fr);gap:clamp(18px,3vw,40px);padding-block:22px;border-top:1px solid var(--rule)}
+.role:first-child{border-top:0;padding-top:0}
+@media (max-width:820px){.role{grid-template-columns:1fr;gap:6px}}
+.role h3{font-size:var(--step-1);font-weight:700}
+.role .org{color:var(--muted);margin-top:2px}
+.role ul{margin:10px 0 0;padding-left:1.1em;display:grid;gap:4px;max-width:72ch}
+.role li::marker{color:var(--contour)}
+.when{font-family:var(--font-mono);font-size:.86rem;font-variant-numeric:tabular-nums;color:var(--ink)}
+.when small{display:block;color:var(--muted);font-size:.78rem;margin-top:2px}
+
+/* two-column info */
+.cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(24px,4vw,56px)}
+@media (max-width:820px){.cols{grid-template-columns:1fr}}
+.list{display:grid;gap:16px}
+.list .item{display:grid;gap:2px}
+.list .item h3{font-size:1.05rem;font-weight:700;font-stretch:105%}
+.list .item p{color:var(--muted);font-size:.93rem}
+.skills{display:grid;gap:18px}
+.skills h3{font-size:.95rem;font-weight:700;margin-bottom:8px;font-stretch:105%}
+.lang{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 16px;font-size:.95rem}
+.lang .mono{color:var(--muted)}
+
+.cert{display:grid;grid-template-columns:minmax(0,220px) minmax(0,1fr);gap:20px;align-items:start;margin-top:8px}
+@media (max-width:520px){.cert{grid-template-columns:1fr}}
+
+/* contact */
+.contact{background:var(--ink);color:var(--paper)}
+.contact .wrap{padding-block:clamp(48px,7vw,88px)}
+.contact h2{font-size:var(--step-3);font-weight:750;color:var(--paper)}
+.contact p.intro{max-width:52ch;margin-top:12px;color:color-mix(in srgb,var(--paper) 78%,var(--ink))}
+.cgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:32px;border:1px solid color-mix(in srgb,var(--paper) 30%,var(--ink))}
+.cgrid > div{padding:16px 18px;border-right:1px solid color-mix(in srgb,var(--paper) 22%,var(--ink));min-width:0;display:grid;gap:6px;align-content:start}
+.cgrid > div:last-child{border-right:0}
+@media (max-width:900px){.cgrid{grid-template-columns:1fr 1fr}.cgrid > div:nth-child(2){border-right:0}.cgrid > div:nth-child(-n+2){border-bottom:1px solid color-mix(in srgb,var(--paper) 22%,var(--ink))}}
+@media (max-width:520px){.cgrid{grid-template-columns:1fr}.cgrid > div{border-right:0!important;border-bottom:1px solid color-mix(in srgb,var(--paper) 22%,var(--ink))}.cgrid > div:last-child{border-bottom:0}}
+.contact .label{color:color-mix(in srgb,var(--paper) 62%,var(--ink))}
+.cval{font-size:1rem;font-weight:500;overflow-wrap:anywhere;color:var(--paper)}
+.cval a{color:var(--paper)}
+.copy{justify-self:start;font-family:var(--font-mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;background:transparent;color:var(--marker);border:1px solid color-mix(in srgb,var(--marker) 60%,transparent);border-radius:2px;padding:3px 8px;cursor:pointer}
+.copy:hover{background:var(--marker);color:var(--marker-ink)}
+footer{border-top:1px solid color-mix(in srgb,var(--paper) 18%,var(--ink));margin-top:40px;padding-top:16px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:.82rem;color:color-mix(in srgb,var(--paper) 60%,var(--ink))}
+
+/* lightbox */
+dialog#lb{border:0;padding:0;background:transparent;max-width:min(96vw,1400px);max-height:94vh}
+dialog#lb::backdrop{background:rgba(8,12,16,.86)}
+dialog#lb img{max-height:86vh;width:auto;max-width:100%;margin:0 auto;background:#fff}
+dialog#lb p{color:#e4eaee;font-size:.88rem;margin-top:8px;text-align:center}
+dialog#lb button{position:absolute;top:8px;right:8px;background:#15202a;color:#fff;border:1px solid #fff5;border-radius:3px;padding:6px 10px;cursor:pointer;font-family:var(--font-mono);font-size:.78rem}
+</style>
+</head>
+<body>
+
+
+<header class="bar">
+  <div class="wrap">
+    <a class="mark" href="#top" aria-label="Hareena Sathar, back to top">
+      <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><rect x="1" y="1" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M7 6v14M7 13h7M14 6v14" stroke="currentColor" stroke-width="2" fill="none"/><circle cx="19.5" cy="17.5" r="2" fill="var(--marker)"/></svg>
+      <span>H. SATHAR</span>
+    </a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a class="opt" href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="label">Civil engineer · Aachen, Germany</p>
+        <h1>Hareena Sathar</h1>
+        <p class="lede">Licensed civil engineer from Kerala with hands-on site, municipal and quantity-surveying experience. At RWTH Aachen I now work with <em>drones, satellite data and machine learning</em> to map floods and other geohazards.</p>
+        <div class="cta">
+          <a class="btn primary" href="#contact">Get in touch</a>
+          <a class="btn" href="https://www.linkedin.com/in/hareenasathar" target="_blank" rel="noopener">LinkedIn ↗</a>
+        </div>
+        <div class="titleblock" role="list" aria-label="Key facts">
+          <div role="listitem"><div class="label">Based in</div><div class="v">Aachen, Germany</div></div>
+          <div role="listitem"><div class="label">Studying at</div><div class="v">RWTH Aachen</div></div>
+          <div role="listitem"><div class="label">Degree</div><div class="v">B.Tech Civil Eng.</div></div>
+          <div role="listitem"><div class="label">Licence</div><div class="v">Engineer “A”, Kerala</div></div>
+          <div role="listitem"><div class="label">In practice since</div><div class="v mono">2020</div></div>
+          <div role="listitem"><div class="label">Languages</div><div class="v">EN · ML · HI · TA · DE</div></div>
+        </div>
+      </div>
+      <figure class="portrait">
+        <span class="crosshair ch-tl" aria-hidden="true"></span>
+        <img src="img/hareena.jpg" alt="Hareena Sathar in a white hard hat and high-visibility vest, working with drawings and a laptop on a construction site" width="1100" height="1100">
+        <span class="crosshair ch-br" aria-hidden="true"></span>
+        <figcaption><span class="label">Hareena Sathar</span><span class="label">Civil engineer</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="block" aria-labelledby="focus-h" style="padding-top:0">
+    <div class="wrap">
+      <h2 id="focus-h" class="label" style="font-family:var(--font-mono);font-size:var(--step--1);font-weight:400;margin-bottom:12px">What I work on</h2>
+      <div class="focus">
+        <div>
+          <p class="label">Build</p>
+          <h3>Site execution &amp; quantities</h3>
+          <p>Supervising contractors and crews, checking work against drawings, quantity take-off, BOQ, bill certification and variations.</p>
+        </div>
+        <div>
+          <p class="label">Survey</p>
+          <h3>Measuring the ground</h3>
+          <p>Drone photogrammetry, dGPS control, total station, and orthomosaics and elevation models processed in QGIS.</p>
+        </div>
+        <div>
+          <p class="label">Analyse</p>
+          <h3>Geodata for hazards</h3>
+          <p>Flood mapping with Sentinel-1 and Sentinel-2 in Google Earth Engine, and machine learning in Python on geothermal data.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work" class="block" aria-labelledby="work-h">
+    <div class="wrap">
+      <div class="section-head"><h2 id="work-h">Selected work</h2><span class="label">Construction · remote sensing · data</span></div>
+
+      <!-- School building -->
+      <article class="project" id="school">
+        <aside class="rail">
+          <dl>
+            <div><dt>Type</dt><dd>School building</dd></div>
+            <div><dt>Location</dt><dd>Kerala, India</dd></div>
+            <div><dt>Role</dt><dd>Site engineer</dd></div>
+            <div><dt>Structure</dt><dd>RC frame, two storeys</dd></div>
+          </dl>
+        </aside>
+        <div class="pbody">
+          <h3>Two-storey school building</h3>
+          <p class="summary">A school block I worked on as site engineer, shown here at completion with the external paving still being laid.</p>
+          <figure>
+            <button class="shot" type="button" data-full="img/school.jpg" data-cap="Completed school building, front elevation, with external paving in progress."><img src="img/school.jpg" alt="Front elevation of a completed two-storey white and blue school building with a curved steel entrance canopy and a tiled-roof stair tower" width="900" height="675"></button>
+            <figcaption>Front elevation at completion. External paving was still under way when this was taken.</figcaption>
+          </figure>
+          <ul>
+            <li>Reinforced-concrete framed block with a symmetrical plan: a central corridor block between two projecting classroom wings.</li>
+            <li>Stair tower over the centre bay with a sloped clay-tile roof, a common Kerala detail for shedding monsoon rain.</li>
+            <li>Curved steel-truss canopy over the main entrance and a ramp with stainless-steel handrails for step-free access.</li>
+          </ul>
+          <div class="chips"><span class="chip">RC frame</span><span class="chip">Site engineering</span><span class="chip">Educational building</span></div>
+        </div>
+      </article>
+
+      <!-- Flood mapping -->
+      <article class="project" id="flood">
+        <aside class="rail">
+          <dl>
+            <div><dt>Year</dt><dd class="mono">2026</dd></div>
+            <div><dt>Context</dt><dd>RWTH Aachen · Remote Sensing in Water Resource Management</dd></div>
+            <div><dt>Area</dt><dd>Kuttanad, Alappuzha (~300 km²)</dd></div>
+            <div><dt>Tools</dt><dd>Google Earth Engine</dd></div>
+          </dl>
+        </aside>
+        <div class="pbody">
+          <h3>Mapping the 2018 Kerala flood from space</h3>
+          <p class="summary">After the 2018 Kerala floods I volunteered on a rehabilitation survey. Eight years later I mapped the same flood from satellite data. I compared radar change detection from Sentinel-1 with the optical MNDWI water index from Sentinel-2 over Kuttanad, the below-sea-level rice-growing wetland that was among the worst-hit areas.</p>
+          <div class="numbers">
+            <div><div class="n">184.7 km²</div><div class="k">flooded area from Sentinel-1 radar</div></div>
+            <div><div class="n">190.9 km²</div><div class="k">water area from Sentinel-2 MNDWI</div></div>
+            <div><div class="n">0.75</div><div class="k">overlap of the two maps (IoU)</div></div>
+            <div><div class="n">~9,700 ha</div><div class="k">cropland inside the flood extent</div></div>
+          </div>
+          <div class="figs three">
+            <figure><button class="shot crop-tall" type="button" data-full="img/flood-sar.jpg" data-cap="Sentinel-1 SAR flood extent over Kuttanad, 15–23 August 2018 (blue), on a Sentinel-2 basemap."><img src="img/flood-sar.jpg" alt="Map of flood extent from Sentinel-1 radar over Kuttanad"></button><figcaption>Radar flood extent. It maps through monsoon cloud.</figcaption></figure>
+            <figure><button class="shot crop-tall" type="button" data-full="img/flood-agreement.jpg" data-cap="Agreement between the two sensors: blue where both detect flooding, amber for radar only, cyan for optical only."><img src="img/flood-agreement.jpg" alt="Map comparing Sentinel-1 and Sentinel-2 flood detections"></button><figcaption>Where radar and optical agree, and where they differ.</figcaption></figure>
+            <figure><button class="shot crop-tall" type="button" data-full="img/flood-cropland.jpg" data-cap="Flood extent intersected with ESA WorldCover cropland (green)."><img src="img/flood-cropland.jpg" alt="Map of flooded cropland in Kuttanad"></button><figcaption>Flooded cropland, from ESA WorldCover.</figcaption></figure>
+          </div>
+          <ul>
+            <li>Built the UN-SPIDER recommended-practice workflow: pre-flood and flood mosaics, speckle filtering, a backscatter-change threshold, then removal of permanent water (JRC), slopes above 5° and isolated pixels.</li>
+            <li>Cross-checked radar against optical with a confusion matrix on 1,000 sample points: 82% agreement, kappa 0.64.</li>
+            <li>Estimated impact by overlaying the flood extent on land-cover and population layers.</li>
+          </ul>
+          <div class="chips"><span class="chip">Sentinel-1 SAR</span><span class="chip">Sentinel-2</span><span class="chip">MNDWI</span><span class="chip">Change detection</span><span class="chip">GEE JavaScript</span></div>
+          <div class="links"><a href="https://code.earthengine.google.com/8a7d95da6801b45294adaa3589eb4571" target="_blank" rel="noopener">Earth Engine script ↗</a></div>
+        </div>
+      </article>
+
+      <!-- ML project -->
+      <article class="project" id="ml">
+        <aside class="rail">
+          <dl>
+            <div><dt>Year</dt><dd class="mono">2026</dd></div>
+            <div><dt>Context</dt><dd>RWTH Aachen · Machine Learning in Geosciences</dd></div>
+            <div><dt>Data</dt><dd>74 sandstone cores, NE German Basin</dd></div>
+            <div><dt>Tools</dt><dd>Python, scikit-learn</dd></div>
+          </dl>
+        </aside>
+        <div class="pbody">
+          <h3>Thermal conductivity of geothermal aquifers: physics vs. machine learning</h3>
+          <p class="summary">I reproduced a published geothermal study (Fuchs &amp; Förster, 2010) and then tested what standard ML models could learn from the same core data. The physics reproduced almost exactly. The ML part showed something more useful: why a model that looks accurate can fail as soon as it sees a new borehole.</p>
+          <div class="numbers">
+            <div><div class="n">0.23%</div><div class="k">max. error vs. published interval heat flow</div></div>
+            <div><div class="n">0.74 → 0.17</div><div class="k">classifier accuracy, random split vs. unseen boreholes</div></div>
+            <div><div class="n">0.91</div><div class="k">share of tree importance on depth, a well-ID shortcut</div></div>
+            <div><div class="n">0.40</div><div class="k">MAE of matrix conductivity, W m⁻¹ K⁻¹</div></div>
+          </div>
+          <div class="figs two">
+            <figure><button class="shot" type="button" data-full="img/ml-porosity.jpg" data-cap="Porosity vs. bulk thermal conductivity. Pooled across formations the trend is flat; within formations the expected negative relationship appears."><img src="img/ml-porosity.jpg" alt="Two scatter plots of porosity against thermal conductivity"></button><figcaption>The porosity effect only appears once mineralogy is held constant.</figcaption></figure>
+            <figure><button class="shot" type="button" data-full="img/ml-holdout.jpg" data-cap="Formation-classification accuracy under a random 70/30 split and under borehole hold-out."><img src="img/ml-holdout.jpg" alt="Bar chart of classifier accuracy under random and borehole hold-out validation"></button><figcaption>Every model collapses when whole boreholes are held out.</figcaption></figure>
+          </div>
+          <ul>
+            <li>Reproduced Fourier's-law heat flow (74.3 vs. published 74.2 mW m⁻²) and inverted the geometric-mean mixing law for matrix conductivity, using a Bland–Altman analysis to compare it with the published values.</li>
+            <li>Compared linear regression, a decision tree, SVMs, k-means and a neural network under two validation designs: random split and grouped hold-out by borehole.</li>
+            <li>Concluded that the missing ingredient is mineralogy (quartz and clay content) rather than model capacity, which points to wireline logs as the right predictors.</li>
+          </ul>
+          <div class="chips"><span class="chip">pandas</span><span class="chip">scikit-learn</span><span class="chip">SciPy</span><span class="chip">Grouped CV</span><span class="chip">Geothermics</span></div>
+        </div>
+      </article>
+
+      <!-- Drone -->
+      <article class="project" id="drone">
+        <aside class="rail">
+          <dl>
+            <div><dt>Year</dt><dd class="mono">2025</dd></div>
+            <div><dt>Context</dt><dd>RWTH Aachen · Multi-Method Field Survey (group)</dd></div>
+            <div><dt>Site</dt><dd>Lochnerstraße, Aachen</dd></div>
+            <div><dt>Tools</dt><dd>DJI Phantom 4 Pro, QGIS</dd></div>
+          </dl>
+        </aside>
+        <div class="pbody">
+          <h3>Drone photogrammetry: orthomosaic and elevation model</h3>
+          <p class="summary">A low-altitude drone survey of an urban block in Aachen, processed into a georeferenced orthomosaic and a high-resolution elevation model, then tied to dGPS-surveyed points.</p>
+          <div class="numbers">
+            <div><div class="n">30 m</div><div class="k">flight altitude</div></div>
+            <div><div class="n">63</div><div class="k">overlapping images</div></div>
+            <div><div class="n">2 cm / 3 cm</div><div class="k">orthomosaic / DEM resolution</div></div>
+            <div><div class="n">≤ 1.7 cm</div><div class="k">DEM vs. dGPS height at control points</div></div>
+          </div>
+          <div class="figs two">
+            <figure><button class="shot" type="button" data-full="img/drone-orthomosaic.jpg" data-cap="Orthomosaic of the survey area with drone and reference points."><img src="img/drone-orthomosaic.jpg" alt="Orthomosaic of a courtyard and parking area in Aachen with labelled survey points"></button><figcaption>Orthomosaic with drone and reference points.</figcaption></figure>
+            <figure><button class="shot" type="button" data-full="img/drone-dem.jpg" data-cap="Elevation model with hillshade and contours, 174.5–209.0 m."><img src="img/drone-dem.jpg" alt="Elevation model with hillshade and contour lines"></button><figcaption>Elevation model with hillshade and contours.</figcaption></figure>
+          </div>
+          <ul>
+            <li>Set up the project in ETRS89 / UTM 32N, styled the DEM with hillshade and contours, and built map layouts in QGIS.</li>
+            <li>Sampled the DEM at 16 points over roofs and paved areas, and compared it with dGPS heights at the control points.</li>
+          </ul>
+          <div class="chips"><span class="chip">Photogrammetry</span><span class="chip">UAV</span><span class="chip">dGPS</span><span class="chip">QGIS</span></div>
+        </div>
+      </article>
+
+      <!-- SWM -->
+      <article class="project" id="swm">
+        <aside class="rail">
+          <dl>
+            <div><dt>Year</dt><dd class="mono">2019</dd></div>
+            <div><dt>Context</dt><dd>B.Tech main project, with Murdoch University (Perth)</dd></div>
+            <div><dt>Area</dt><dd>Ambalappuzha North Grama Panchayat, 18 wards</dd></div>
+            <div><dt>Presented</dt><dd>Build Kerala Mission, Alappuzha, 2020</dd></div>
+          </dl>
+        </aside>
+        <div class="pbody">
+          <h3>Solid waste management plan for Ambalappuzha North</h3>
+          <p class="summary">A field study and costed proposal for decentralised waste management in a coastal panchayat of about 30,000 people. It was carried out together with visiting students from Murdoch University under the Australian New Colombo Plan.</p>
+          <div class="numbers">
+            <div><div class="n">18</div><div class="k">wards analysed</div></div>
+            <div><div class="n">57</div><div class="k">stakeholders at the public meeting</div></div>
+            <div><div class="n">≈ ₹4 crore</div><div class="k">estimated programme cost</div></div>
+          </div>
+          <div class="figs three">
+            <figure><button class="shot crop" type="button" data-full="img/swm-stakeholders.jpg" data-cap="Stakeholder meeting with panchayat members, health workers, Kudumbashree and Haritha Karma Sena, February 2019."><img src="img/swm-stakeholders.jpg" alt="Stakeholder meeting in a college hall"></button><figcaption>Stakeholder meeting, Feb 2019.</figcaption></figure>
+            <figure><button class="shot crop" type="button" data-full="img/swm-biogas.jpg" data-cap="Existing biogas plant at the Medical College Hospital, part of the baseline survey."><img src="img/swm-biogas.jpg" alt="Circular biogas plant"></button><figcaption>Existing biogas plant, baseline survey.</figcaption></figure>
+            <figure><button class="shot crop" type="button" data-full="img/swm-compost.jpg" data-cap="Household compost unit visited during the field survey."><img src="img/swm-compost.jpg" alt="Concrete compost bins in a garden"></button><figcaption>Household composting, field survey.</figcaption></figure>
+          </div>
+          <ul>
+            <li>Ran household questionnaire surveys and documented the existing facilities: the hospital biogas plant, composting units and Haritha Karma Sena collection.</li>
+            <li>Proposed household biogas (0.5 m³) and vermicomposting units at Suchitwa Mission rates, ward-level collection and sorting, and landfill only for the residual 5–10%.</li>
+            <li>Presented the proposal to the Build Kerala Mission, Alappuzha district.</li>
+          </ul>
+          <div class="cert">
+            <button class="shot" type="button" data-full="img/murdoch-certificate.jpg" data-cap="Certificate: Murdoch University and Carmel College, Australia New Colombo Plan workshop and training, 7–22 February 2019."><img src="img/murdoch-certificate.jpg" alt="Murdoch University certificate of participation for Hareena Sathar" width="900" height="1308"></button>
+            <div class="list">
+              <div class="item"><p class="label">Certificate</p><h3>Murdoch University · Carmel College</h3><p>Australia New Colombo Plan workshop and training on solar-powered reverse-osmosis water supply and solid waste management. 7–22 February 2019.</p></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <div class="section-head" style="margin-top:clamp(24px,4vw,48px)"><h2 style="font-size:var(--step-2)">More projects</h2></div>
+      <div class="minor">
+        <article>
+          <p class="label">RWTH Aachen · 2025/26</p>
+          <h3>Project management workbook</h3>
+          <p>Stakeholder analysis for relocating a production site, work breakdown structure, critical-path network, cost and bid calculation, milestone trend analysis and earned-value analysis.</p>
+          <div class="chips"><span class="chip">CPM</span><span class="chip">EVM</span><span class="chip">WBS</span></div>
+        </article>
+        <article>
+          <p class="label">Volunteer · 2018</p>
+          <h3>Kerala flood rehabilitation survey</h3>
+          <p>Worked in a team of four National Service Scheme volunteers on a post-flood rehabilitation survey after the August 2018 floods.</p>
+          <div class="chips"><span class="chip">Field survey</span><span class="chip">NSS</span></div>
+        </article>
+        <article>
+          <p class="label">B.Tech mini project</p>
+          <h3>Rolling barrier system for road safety</h3>
+          <p>A study of roller-type guardrails, which use rotating EVA barrels to turn impact energy into rotation and steer vehicles back to the road at accident-prone curves.</p>
+          <div class="chips"><span class="chip">Road safety</span><span class="chip">Guardrails</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" class="block" aria-labelledby="exp-h">
+    <div class="wrap">
+      <div class="section-head"><h2 id="exp-h">Experience</h2><span class="label">Alappuzha, Kerala</span></div>
+      <div class="timeline">
+        <div class="role">
+          <div class="when">From Mar 2023<small>Alappuzha, India</small></div>
+          <div>
+            <h3>Civil Site Engineer</h3>
+            <p class="org">SKJK Infrastructure Pvt Ltd</p>
+            <ul>
+              <li>Monitored construction progress and performance against the plan.</li>
+              <li>Enforced site safety rules, accident protocols and quality control.</li>
+              <li>Directed the site team, contractors and subcontractors, and scheduled equipment maintenance.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="role">
+          <div class="when">Since Jun 2020<small class="mono">Reg. E-B131/20/EA-5316/KLM</small></div>
+          <div>
+            <h3>Licensed Engineer “A”</h3>
+            <p class="org">Department of Urban Affairs, Government of Kerala</p>
+            <ul>
+              <li>Reviewed and approved civil engineering drawings.</li>
+              <li>Quantity calculation and take-off, variation handling, bill certification and subcontractor bills.</li>
+              <li>Finishing works and their specification.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="role">
+          <div class="when">Jun 2020 – Aug 2021<small>Alappuzha, India</small></div>
+          <div>
+            <h3>Engineering Trainee</h3>
+            <p class="org">Cherthala Municipality</p>
+            <ul>
+              <li>Supervised project staff, external contractors and subcontractors.</li>
+              <li>Met with clients, contractors, asset owners and stakeholders on project details.</li>
+              <li>Prepared drawings to specification under the project QA procedures, and checked inventories and material orders against budget.</li>
+              <li>Trained two new employees to take over similar projects.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education" class="block" aria-labelledby="edu-h">
+    <div class="wrap">
+      <div class="section-head"><h2 id="edu-h">Education &amp; skills</h2></div>
+      <div class="cols">
+        <div class="list">
+          <div class="item"><p class="label mono">Current</p><h3>Master's studies, RWTH Aachen University</h3><p>Coursework includes Machine Learning in Geosciences, Remote Sensing in Water Resource Management, Project Management and the Multi-Method Field Survey.</p></div>
+          <div class="item"><p class="label mono">2015 – 2019</p><h3>B.Tech Civil Engineering · CGPA 8.03</h3><p>Carmel College of Engineering and Technology, Punnapra, Alappuzha.</p></div>
+          <div class="item"><p class="label mono">2023</p><h3>Revit Architecture</h3><p>CADD Centre Training Services, Alappuzha.</p></div>
+          <div class="item"><p class="label">Short courses</p><h3>Total station · Concrete mix design</h3><p>Total station course at ALG International Institute of Technology, and a workshop on concrete mix design.</p></div>
+          <div class="item"><p class="label">Industrial exposure</p><h3>Site visits and training</h3><p>3.2 km elevated highway, Alappuzha · Kochi Metro Rail · Peringalkuthu dam and power station · Abad Builders, Nucleus Mall · Bharath Cement Ltd, Bengaluru · industrial training at the TD Medical College project site (June 2018).</p></div>
+        </div>
+        <div class="skills">
+          <div><h3>Site &amp; quantity surveying</h3><div class="chips"><span class="chip">Site supervision</span><span class="chip">Quantity take-off</span><span class="chip">BOQ &amp; estimation</span><span class="chip">Bill certification</span><span class="chip">Variations</span><span class="chip">Drawing review</span><span class="chip">QA/QC</span><span class="chip">Site safety</span></div></div>
+          <div><h3>Survey &amp; geospatial</h3><div class="chips"><span class="chip">Total station</span><span class="chip">Drone photogrammetry</span><span class="chip">dGPS</span><span class="chip">QGIS</span><span class="chip">Google Earth Engine</span><span class="chip">Sentinel-1/2</span></div></div>
+          <div><h3>Software &amp; data</h3><div class="chips"><span class="chip">Revit</span><span class="chip">Python</span><span class="chip">pandas</span><span class="chip">scikit-learn</span><span class="chip">Matplotlib</span><span class="chip">MS Excel</span><span class="chip">MS Office</span></div></div>
+          <div><h3>Languages</h3>
+            <div class="lang">
+              <span>Malayalam</span><span class="mono">Native</span>
+              <span>English</span><span class="mono">C1</span>
+              <span>Hindi</span><span class="mono">C2 spoken · B2 written</span>
+              <span>Tamil</span><span class="mono">C1 listening</span>
+              <span>German</span><span class="mono">A1</span>
+            </div>
+          </div>
+          <div><h3>Also</h3><p style="color:var(--muted);font-size:.95rem">National Service Scheme volunteer, 2015–2019. Driving licence (A2, B). Content creation, video editing and pencil drawing.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<section id="contact" class="contact" aria-labelledby="contact-h">
+  <div class="wrap">
+    <p class="label">Contact</p>
+    <h2 id="contact-h" style="margin-top:8px">Let's talk about your project.</h2>
+    <p class="intro">I am open to working-student positions, internships and engineering roles in construction, surveying and geospatial analysis in and around Aachen.</p>
+    <div class="cgrid">
+      <div><span class="label">Email</span><span class="cval" id="c-email"><a href="mailto:hareenasathar28@gmail.com">hareenasathar28@gmail.com</a></span><button class="copy" type="button" data-copy="hareenasathar28@gmail.com">Copy</button></div>
+      <div><span class="label">Phone</span><span class="cval mono"><a href="tel:+4915560718875">+49 15560 718875</a></span><button class="copy" type="button" data-copy="+49 15560 718875">Copy</button></div>
+      <div><span class="label">LinkedIn</span><span class="cval"><a href="https://www.linkedin.com/in/hareenasathar" target="_blank" rel="noopener">in/hareenasathar ↗</a></span></div>
+      <div><span class="label">Location</span><span class="cval">Aachen, Germany</span></div>
+    </div>
+    <footer><span>© 2026 Hareena Sathar</span><span class="mono">Aachen · 50.78° N, 6.08° E</span></footer>
+  </div>
+</section>
+
+<dialog id="lb" aria-label="Image viewer">
+  <button type="button" id="lb-close">Close ✕</button>
+  <img id="lb-img" alt="">
+  <p id="lb-cap"></p>
+</dialog>
+
+<script>
+(function(){
+  var lb=document.getElementById('lb'),img=document.getElementById('lb-img'),cap=document.getElementById('lb-cap');
+  document.querySelectorAll('.shot').forEach(function(b){
+    b.addEventListener('click',function(){
+      var inner=b.querySelector('img');
+      img.src=b.getAttribute('data-full'); img.alt=inner?inner.alt:''; cap.textContent=b.getAttribute('data-cap')||'';
+      if(lb.showModal){lb.showModal();}else{window.open(img.src,'_blank');}
+    });
+  });
+  document.getElementById('lb-close').addEventListener('click',function(){lb.close();});
+  lb.addEventListener('click',function(e){if(e.target===lb)lb.close();});
+  document.querySelectorAll('.copy').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var t=btn.getAttribute('data-copy'),done=function(){btn.textContent='Copied';setTimeout(function(){btn.textContent='Copy';},1600);};
+      try{
+        navigator.clipboard.writeText(t).then(done,function(){sel(btn);});
+      }catch(e){sel(btn);}
+    });
+  });
+  function sel(btn){var v=btn.previousElementSibling;try{var r=document.createRange();r.selectNodeContents(v);var s=window.getSelection();s.removeAllRanges();s.addRange(r);btn.textContent='Selected';}catch(e){}}
+})();
+</script>
+
+</body>
+</html>

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Hareena Sathar</title>
-<meta name="description" content="Hareena Sathar: licensed civil engineer from Kerala, now studying at RWTH Aachen. Site engineering, quantity surveying, remote sensing, photogrammetry and machine learning for geohazards.">
+<meta name="description" content="Hareena Sathar: licensed civil engineer from Kerala, M.Sc. Engineering Geohazards student at RWTH Aachen. Site engineering, quantity surveying, hydrology, flood protection, remote sensing and machine learning.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -101,12 +101,31 @@ section{scroll-margin-top:72px}
 .block{padding-block:clamp(40px,6vw,72px)}
 
 /* focus strip */
-.focus{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border:1px solid var(--rule-strong);background:var(--sheet)}
-.focus > div{padding:20px 22px;border-right:1px solid var(--rule);min-width:0}
-.focus > div:last-child{border-right:0}
+.focus{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;border:1px solid var(--rule-strong);background:var(--rule)}
+.focus > div{padding:20px 22px;background:var(--sheet);min-width:0}
 .focus h3{font-size:var(--step-1);font-weight:700;margin-block:6px 8px}
 .focus p{color:var(--muted);font-size:.95rem}
-@media (max-width:820px){.focus{grid-template-columns:1fr}.focus > div{border-right:0;border-bottom:1px solid var(--rule)}.focus > div:last-child{border-bottom:0}}
+@media (max-width:1000px){.focus{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){.focus{grid-template-columns:1fr}}
+
+/* grades */
+.grades{width:100%;border-collapse:collapse;font-size:.93rem}
+.grades th,.grades td{text-align:left;padding:8px 0;border-bottom:1px solid var(--rule);vertical-align:baseline}
+.grades th{font-family:var(--font-mono);font-weight:400;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.grades td.g{font-family:var(--font-display);font-weight:750;font-stretch:110%;font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap;padding-left:16px}
+.grades td.g.top{color:var(--contour)}
+.grades td small{display:block;color:var(--muted);font-size:.8rem}
+.scale{font-size:.8rem;color:var(--muted);margin-top:8px}
+.msc{border:1.5px solid var(--ink);background:var(--sheet);padding:18px 20px;display:grid;gap:14px}
+.msc-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap}
+.msc-head h3{font-size:var(--step-1);font-weight:750}
+.gpa{text-align:right}
+.gpa .n{font-family:var(--font-display);font-weight:800;font-stretch:115%;font-size:2.2rem;line-height:1;color:var(--contour)}
+.areas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 24px}
+@media (max-width:620px){.areas{grid-template-columns:1fr}}
+.areas h4{margin:0 0 4px;font-family:var(--font-body);font-size:.88rem;font-weight:600}
+.areas p{color:var(--muted);font-size:.88rem;line-height:1.5}
+.badge{display:inline-block;font-family:var(--font-mono);font-size:.72rem;padding:2px 7px;border-radius:2px;background:var(--marker);color:var(--marker-ink);font-weight:500;letter-spacing:.02em}
 
 /* project sheet */
 .project{display:grid;grid-template-columns:200px minmax(0,1fr);gap:clamp(18px,3vw,40px);padding-block:clamp(28px,4vw,44px);border-top:1px solid var(--rule)}
@@ -163,11 +182,11 @@ figcaption{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.45}
 /* two-column info */
 .cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(24px,4vw,56px)}
 @media (max-width:820px){.cols{grid-template-columns:1fr}}
-.list{display:grid;gap:16px}
+.list{display:grid;gap:16px;align-content:start}
 .list .item{display:grid;gap:2px}
 .list .item h3{font-size:1.05rem;font-weight:700;font-stretch:105%}
 .list .item p{color:var(--muted);font-size:.93rem}
-.skills{display:grid;gap:18px}
+.skills{display:grid;gap:18px;align-content:start}
 .skills h3{font-size:.95rem;font-weight:700;margin-bottom:8px;font-stretch:105%}
 .lang{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 16px;font-size:.95rem}
 .lang .mono{color:var(--muted)}
@@ -224,18 +243,18 @@ dialog#lb button{position:absolute;top:8px;right:8px;background:#15202a;color:#f
       <div>
         <p class="label">Civil engineer · Aachen, Germany</p>
         <h1>Hareena Sathar</h1>
-        <p class="lede">Licensed civil engineer from Kerala with hands-on site, municipal and quantity-surveying experience. At RWTH Aachen I now work with <em>drones, satellite data and machine learning</em> to map floods and other geohazards.</p>
+        <p class="lede">Licensed civil engineer from Kerala with hands-on site, municipal and quantity-surveying experience, now studying for an M.Sc. in <em>Engineering Geohazards</em> at RWTH Aachen. I combine construction practice with hydrology, flood protection, hazard and risk analysis, remote sensing and machine learning.</p>
         <div class="cta">
           <a class="btn primary" href="#contact">Get in touch</a>
           <a class="btn" href="https://www.linkedin.com/in/hareenasathar" target="_blank" rel="noopener">LinkedIn ↗</a>
         </div>
         <div class="titleblock" role="list" aria-label="Key facts">
           <div role="listitem"><div class="label">Based in</div><div class="v">Aachen, Germany</div></div>
-          <div role="listitem"><div class="label">Studying at</div><div class="v">RWTH Aachen</div></div>
-          <div role="listitem"><div class="label">Degree</div><div class="v">B.Tech Civil Eng.</div></div>
+          <div role="listitem"><div class="label">Studying</div><div class="v">M.Sc. Engineering Geohazards, RWTH</div></div>
+          <div role="listitem"><div class="label">M.Sc. grade so far</div><div class="v"><span class="mono">1.7</span> <span style="color:var(--muted);font-weight:400">(good)</span></div></div>
+          <div role="listitem"><div class="label">Degree</div><div class="v">B.Tech Civil Eng., CGPA 8.33</div></div>
           <div role="listitem"><div class="label">Licence</div><div class="v">Engineer “A”, Kerala</div></div>
           <div role="listitem"><div class="label">In practice since</div><div class="v mono">2020</div></div>
-          <div role="listitem"><div class="label">Languages</div><div class="v">EN · ML · HI · TA · DE</div></div>
         </div>
       </div>
       <figure class="portrait">
@@ -262,9 +281,14 @@ dialog#lb button{position:absolute;top:8px;right:8px;background:#15202a;color:#f
           <p>Drone photogrammetry, dGPS control, total station, and orthomosaics and elevation models processed in QGIS.</p>
         </div>
         <div>
+          <p class="label">Assess</p>
+          <h3>Water &amp; geohazards</h3>
+          <p>Engineering hydrology, flood protection, dams and coastal engineering, and geological hazard and risk analysis.</p>
+        </div>
+        <div>
           <p class="label">Analyse</p>
-          <h3>Geodata for hazards</h3>
-          <p>Flood mapping with Sentinel-1 and Sentinel-2 in Google Earth Engine, and machine learning in Python on geothermal data.</p>
+          <h3>Geodata &amp; ML</h3>
+          <p>Flood mapping with Sentinel-1 and Sentinel-2 in Google Earth Engine, and machine learning and data handling in Python.</p>
         </div>
       </div>
     </div>
@@ -306,6 +330,7 @@ dialog#lb button{position:absolute;top:8px;right:8px;background:#15202a;color:#f
           <dl>
             <div><dt>Year</dt><dd class="mono">2026</dd></div>
             <div><dt>Context</dt><dd>RWTH Aachen · Remote Sensing in Water Resource Management</dd></div>
+            <div><dt>Course grade</dt><dd><span class="badge">1.7</span></dd></div>
             <div><dt>Area</dt><dd>Kuttanad, Alappuzha (~300 km²)</dd></div>
             <div><dt>Tools</dt><dd>Google Earth Engine</dd></div>
           </dl>
@@ -340,6 +365,7 @@ dialog#lb button{position:absolute;top:8px;right:8px;background:#15202a;color:#f
           <dl>
             <div><dt>Year</dt><dd class="mono">2026</dd></div>
             <div><dt>Context</dt><dd>RWTH Aachen · Machine Learning in Geosciences</dd></div>
+            <div><dt>Course grade</dt><dd><span class="badge">1.0 · top grade</span></dd></div>
             <div><dt>Data</dt><dd>74 sandstone cores, NE German Basin</dd></div>
             <div><dt>Tools</dt><dd>Python, scikit-learn</dd></div>
           </dl>
@@ -508,8 +534,33 @@ dialog#lb button{position:absolute;top:8px;right:8px;background:#15202a;color:#f
       <div class="section-head"><h2 id="edu-h">Education &amp; skills</h2></div>
       <div class="cols">
         <div class="list">
-          <div class="item"><p class="label mono">Current</p><h3>Master's studies, RWTH Aachen University</h3><p>Coursework includes Machine Learning in Geosciences, Remote Sensing in Water Resource Management, Project Management and the Multi-Method Field Survey.</p></div>
-          <div class="item"><p class="label mono">2015 – 2019</p><h3>B.Tech Civil Engineering · CGPA 8.03</h3><p>Carmel College of Engineering and Technology, Punnapra, Alappuzha.</p></div>
+          <div class="msc">
+            <div class="msc-head">
+              <div><p class="label mono">Since 2024 · Aachen</p><h3>M.Sc. Engineering Geohazards</h3><p style="color:var(--muted);font-size:.93rem">RWTH Aachen University</p></div>
+              <div class="gpa"><div class="n">1.7</div><div class="label">grade so far</div></div>
+            </div>
+            <table class="grades">
+              <thead><tr><th>Highest grades</th><th style="text-align:right">Grade</th></tr></thead>
+              <tbody>
+                <tr><td>Machine Learning in Geosciences</td><td class="g top">1.0</td></tr>
+                <tr><td>Engineering Hydrology</td><td class="g top">1.0</td></tr>
+                <tr><td>Diversity in Project Management</td><td class="g top">1.3</td></tr>
+                <tr><td>Engineering Hydrology and Remote Sensing<small>Module, 12 ECTS</small></td><td class="g top">1.3</td></tr>
+                <tr><td>Project Management<small>Module, 6 ECTS</small></td><td class="g">1.6</td></tr>
+                <tr><td>Remote Sensing in Water Resource Management</td><td class="g">1.7</td></tr>
+                <tr><td>Hazards and Risk Analysis</td><td class="g">1.7</td></tr>
+                <tr><td>Inorganic Environmental Geochemistry, lab course</td><td class="g">1.7</td></tr>
+              </tbody>
+            </table>
+            <p class="scale">German grading scale: 1.0 is the best grade, 1.0–1.5 is “very good”, 1.6–2.5 is “good”.</p>
+            <div class="areas">
+              <div><h4>Water &amp; flood engineering</h4><p>Engineering Hydrology · Flood Protection and Hydroengineering · Dams and Hydropower · Coastal Engineering · Climatology</p></div>
+              <div><h4>Geohazards &amp; risk</h4><p>Hazards and Risk Analysis · Neotectonics and Earthquake Geology · Geological Map Interpretation</p></div>
+              <div><h4>Geodata &amp; computing</h4><p>Remote Sensing in Water Resource Management · Machine Learning in Geosciences</p></div>
+              <div><h4>Field, lab &amp; management</h4><p>Multi-Method Field Survey · Inorganic Environmental Geochemistry (lecture and lab) · Project Management · Diversity in Project Management · Scientific Integrity</p></div>
+            </div>
+          </div>
+          <div class="item"><p class="label mono">2015 – 2019</p><h3>B.Tech Civil Engineering · CGPA 8.33</h3><p>Carmel College of Engineering and Technology, Punnapra, Alappuzha.</p></div>
           <div class="item"><p class="label mono">2023</p><h3>Revit Architecture</h3><p>CADD Centre Training Services, Alappuzha.</p></div>
           <div class="item"><p class="label">Short courses</p><h3>Total station · Concrete mix design</h3><p>Total station course at ALG International Institute of Technology, and a workshop on concrete mix design.</p></div>
           <div class="item"><p class="label">Industrial exposure</p><h3>Site visits and training</h3><p>3.2 km elevated highway, Alappuzha · Kochi Metro Rail · Peringalkuthu dam and power station · Abad Builders, Nucleus Mall · Bharath Cement Ltd, Bengaluru · industrial training at the TD Medical College project site (June 2018).</p></div>
@@ -524,7 +575,7 @@ dialog#lb button{position:absolute;top:8px;right:8px;background:#15202a;color:#f
               <span>English</span><span class="mono">C1</span>
               <span>Hindi</span><span class="mono">C2 spoken · B2 written</span>
               <span>Tamil</span><span class="mono">C1 listening</span>
-              <span>German</span><span class="mono">A1</span>
+              <span>German</span><span class="mono">A2 · in progress</span>
             </div>
           </div>
           <div><h3>Also</h3><p style="color:var(--muted);font-size:.95rem">National Service Scheme volunteer, 2015–2019. Driving licence (A2, B). Content creation, video editing and pencil drawing.</p></div>
